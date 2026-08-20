@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +50,8 @@
         font-weight: bold;
         color: #222222;
     }
-    .logo img{
+
+    .logo img {
         width: 75px;
         height: 80px;
     }
@@ -133,6 +134,12 @@
         gap: 8px;
     }
 
+    .imagen-producto {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
     .card-producto h3 {
         color: #1a1a1a;
     }
@@ -201,10 +208,10 @@
 
 <script>
     const productos = [
-        {nombre: "Mouse", precio: 20, stock: 5},
-        {nombre: "Teclado", precio: 45, stock: 6},
-        {nombre: "Monitor", precio: 150, stock: 3},
-        {nombre: "Webcam", precio: 30, stock: 8},
+        {nombre: "Mouse", precio: 20, stock: 5, imagen: "Imagenes/mouse.jpeg"},
+        {nombre: "Teclado", precio: 45, stock: 6, imagen: "Imagenes/teclado.jpeg"},
+        {nombre: "Monitor", precio: 150, stock: 3, imagen: "Imagenes/monitor.jpeg"},
+        {nombre: "Webcam", precio: 30, stock: 8, imagen: "Imagenes/web.jpeg"},
     ];
 
     function obtenerDisponibles(lista) {
@@ -212,14 +219,15 @@
     }
 
     function crearCardHTML(producto) {
-        const {nombre, precio, stock} = producto;
+        const {nombre, precio, stock, imagen} = producto;
         return `
-        <article class="card-producto">
-          <h3>${nombre}</h3>
-          <p class="precio">$${precio}</p>
-          <p class="stock">Stock disponible: ${stock} unidades</p>
-        </article>
-      `;
+    <article class="card-producto">
+      <img src="${imagen}" alt="${nombre}" class="imagen-producto" />
+      <h3>${nombre}</h3>
+      <p class="precio">$${precio}</p>
+      <p class="stock">Stock disponible: ${stock} unidades</p>
+    </article>
+  `;
     }
 
     function renderizarProductos() {
