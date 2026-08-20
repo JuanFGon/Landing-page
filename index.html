@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Store Tecnologhy</title>
+</head>
+<style>
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        height: 100%;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: system-ui, sans-serif;
+        color: #222;
+        line-height: 1.5;
+    }
+
+    main {
+        flex: 1;
+    }
+
+    header {
+        background: #ffe600;
+        color: #222222;
+        padding: 16px 24px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #222222;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 24px;
+        list-style: none;
+    }
+
+    nav a {
+        color: #222222;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    nav a:hover {
+        color: #0056b3;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 16px;
+        padding: 64px 24px;
+        background: #E7E5E4;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        max-width: 700px;
+    }
+
+    .hero p {
+        max-width: 500px;
+        color: #555;
+    }
+
+    .btn-primario {
+        padding: 12px 28px;
+        background: #1a1a1a;
+        color: #ffe600;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .btn-primario:hover {
+        background: #333;
+    }
+
+    .productos {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 48px 24px;
+    }
+
+    .productos h2 {
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    .grid-productos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .card-producto {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .card-producto h3 {
+        color: #1a1a1a;
+    }
+
+    .card-producto .precio {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #1a1a1a;
+    }
+
+    .card-producto .stock {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+    footer {
+        background: #E7E5E4;
+        color: #222222;
+        text-align: center;
+        padding: 24px;
+    }
+
+    @media (min-width: 768px) {
+        .grid-productos {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        nav {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        nav ul {
+            gap: 16px;
+        }
+    }
+</style>
+<body>
+<header>
+    <nav>
+        <div class="logo">Store Tecnologhy</div>
+        <ul>
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="hero">
+        <h1>Tecnologia De La Mejor Calidad</h1>
+        <p>Mouse,Teclados, Monitores y mas con Entrega Inmediata</p>
+        <button class="btn-primario">Ver Productos</button>
+    </section>
+    <section id="productos" class="productos">
+        <h2>Nuestros Productos</h2>
+        <div class="grid-productos">
+        </div>
+    </section>
+</main>
+<footer>
+    <p>Contacto: contacto@storetecnologhy.com</p>
+    <p>&copy; 2026 Store Tecnologhy — Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    const productos = [
+        {nombre: "Mouse", precio: 20, stock: 5},
+        {nombre: "Teclado", precio: 45, stock: 0},
+        {nombre: "Monitor", precio: 150, stock: 3},
+        {nombre: "Webcam", precio: 30, stock: 8},
+    ];
+
+    function obtenerDisponibles(lista) {
+        return lista.filter((p) => p.stock > 0);
+    }
+
+    function crearCardHTML(producto) {
+        const {nombre, precio, stock} = producto;
+        return `
+        <article class="card-producto">
+          <h3>${nombre}</h3>
+          <p class="precio">$${precio}</p>
+          <p class="stock">Stock disponible: ${stock} unidades</p>
+        </article>
+      `;
+    }
+
+    function renderizarProductos() {
+        const contenedor = document.querySelector(".grid-productos");
+        const disponibles = obtenerDisponibles(productos);
+        const cardsHTML = disponibles.map((p) => crearCardHTML(p)).join("");
+        contenedor.innerHTML = cardsHTML;
+    }
+
+    renderizarProductos();
+</script>
+</body>
+</html>
