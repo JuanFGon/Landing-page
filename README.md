@@ -1,12 +1,12 @@
-# Store Technology
+# Mercado Libre Colombia — Landing Page
 
-Landing page responsive para una tienda de productos tecnológicos.
+Landing page responsive para un catálogo de productos tecnológicos de Mercado Libre Colombia.
 
 ## Descripción
 
-Este proyecto muestra una página web para una tienda de tecnología. Incluye una sección principal de bienvenida, navegación, listado dinámico de productos y datos de contacto.
+El proyecto presenta una página web con menú de navegación, sección principal, catálogo de productos y datos de contacto.
 
-Los productos se generan con JavaScript a partir de un arreglo de objetos, mostrando únicamente aquellos que tienen unidades disponibles.
+El catálogo se crea dinámicamente con JavaScript. Cada producto contiene su nombre, precio, stock e imagen. Solo se muestran los productos que tienen unidades disponibles.
 
 ## Tecnologías utilizadas
 
@@ -16,14 +16,27 @@ Los productos se generan con JavaScript a partir de un arreglo de objetos, mostr
 
 ## Funcionalidades
 
+- Diseño responsive para computador, tablet y móvil.
 - Menú de navegación.
-- Diseño adaptable para computadores y dispositivos móviles.
-- Listado dinámico de productos.
-- Filtro de productos con stock disponible.
-- Tarjetas que muestran nombre, precio y cantidad disponible.
+- Sección principal con llamado a la acción.
+- Catálogo de productos generado dinámicamente.
+- Filtro de productos con stock mayor a cero.
+- Tarjetas con imagen, nombre, precio y disponibilidad.
+- Uso de Flexbox para la navegación y la sección principal.
+- Uso de CSS Grid para organizar las tarjetas.
+- Prevención de scroll horizontal.
 
 ## Estructura del proyecto
 
 ```text
 Landing_pagina_store/
-└── index.html
+├── index.html
+├── style.css
+├── catalogo.js
+├── README.md
+└── Imagenes/
+    ├── Logo-mercadolibre.png
+    ├── Mouse.jpeg
+    ├── teclado.jpeg
+    ├── monitor.jpeg
+    └── web.jpeg

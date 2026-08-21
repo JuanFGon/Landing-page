@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, sans-serif;
+    color: #222;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+}
+
+header {
+    background: #ffe600;
+    color: #222222;
+    padding: 16px 24px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #222222;
+}
+
+.logo img {
+    width: 75px;
+    height: 80px;
+}
+
+nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+}
+
+nav a {
+    color: #222222;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    padding: 64px 24px;
+    background: #E7E5E4;
+}
+
+.hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    max-width: 700px;
+}
+
+.hero p {
+    max-width: 500px;
+    color: #555;
+}
+
+.btn-primario {
+    padding: 12px 28px;
+    background: #1a1a1a;
+    color: #ffe600;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primario:hover {
+    background: #333;
+}
+
+.productos {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+.productos h2 {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card-producto {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.imagen-producto {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.card-producto h3 {
+    color: #1a1a1a;
+}
+
+.card-producto .precio {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.card-producto .stock {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+footer {
+    background: #ffe600;
+    color: #222222;
+    text-align: center;
+    padding: 24px;
+}
+
+@media (min-width: 768px) {
+    .grid-productos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul {
+        gap: 16px;
+    }
+}
